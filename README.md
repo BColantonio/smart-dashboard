@@ -1,59 +1,38 @@
-# SmartDashboard
+# Smart Dashboard
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.5.
+Angular 21 app with a shell layout (sidebar + header), a dashboard home route, and mock HTTP-style APIs implemented with RxJS.
 
-## Development server
+## What’s in the repo
 
-To start a local development server, run:
+- **Routing:** `ShellComponent` wraps child routes; the default child is `DashboardComponent` (`app.routes.ts`).
+- **Dashboard:** Stat cards (users, revenue, conversion) and a “Recent Activity” list. Data comes from `ApiService` (`getDashboardStats`, `getRecentActivity`) with artificial delays.
+- **View model:** `vm$` uses `combineLatest` over those streams and `shareReplay(1)` in `dashboard.component.ts`.
+- **Styling:** Global `src/styles.css` and component styles (inline in the dashboard/shell components). No SCSS files.
+- **Other:** `components/ui/card` is a standalone `app-card` scaffold (not used by the dashboard yet). `core/services/auth.ts` is present but not wired into routes or the shell.
+- **Testing:** `ng test` uses Vitest (see `package.json`).
+
+## Tech stack
+
+- Angular 21+
+- TypeScript
+- RxJS
+- CSS
+- Vitest (via Angular CLI unit test target)
+
+## Scripts
+
+| Command        | Description              |
+|----------------|--------------------------|
+| `npm start`    | Same as `ng serve`       |
+| `ng serve`     | Dev server (port 4200)   |
+| `ng build`     | Production build to `dist/` |
+| `ng test`      | Unit tests               |
+
+## Getting started
 
 ```bash
+npm install
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Open [http://localhost:4200](http://localhost:4200).

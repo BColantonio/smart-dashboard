@@ -15,9 +15,13 @@ import { shareReplay } from 'rxjs/operators';
         <div class="card">Revenue: \${{ vm.stats.revenue }}</div>
         <div class="card">Conversion: {{ vm.stats.conversion }}%</div>
       </div>
-      <ul class="activity">
-        <li *ngFor="let line of vm.activity">{{ line }}</li>
-      </ul>
+
+      <div class="card activity">
+        <h3>Recent Activity</h3>
+        <ul>
+          <li *ngFor="let item of vm.activity">{{ item }}</li>
+        </ul>
+      </div>
     </ng-container>
 
     <ng-template #loading>
@@ -39,8 +43,17 @@ import { shareReplay } from 'rxjs/operators';
       font-size: 18px;
     }
 
-    .activity {
-      margin: 16px 0 0;
+    .card.activity {
+      margin-top: 16px;
+    }
+
+    .card.activity h3 {
+      margin: 0 0 12px;
+      font-size: 16px;
+    }
+
+    .card.activity ul {
+      margin: 0;
       padding-left: 20px;
       font-size: 14px;
       color: #333;

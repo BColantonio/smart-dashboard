@@ -36,3 +36,5 @@ ng serve
 ```
 
 Open [http://localhost:4200](http://localhost:4200).
+<img width="1310" height="682" alt="image" src="https://github.com/user-attachments/assets/3b0c29bf-0f31-4701-9a26-3268165501b6" />
+

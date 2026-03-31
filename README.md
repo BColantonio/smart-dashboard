@@ -2,14 +2,68 @@
 
 Angular 21 app with a shell layout (sidebar + header), a dashboard home route, and mock HTTP-style APIs implemented with RxJS.
 
-## What’s in the repo
+## 🧠 What the App Does
 
-- **Routing:** `ShellComponent` wraps child routes; the default child is `DashboardComponent` (`app.routes.ts`).
-- **Dashboard:** Stat cards (users, revenue, conversion) and a “Recent Activity” list. Data comes from `ApiService` (`getDashboardStats`, `getRecentActivity`) with artificial delays.
-- **View model:** `vm$` uses `combineLatest` over those streams and `shareReplay(1)` in `dashboard.component.ts`.
-- **Styling:** Global `src/styles.css` and component styles (inline in the dashboard/shell components). No SCSS files.
-- **Other:** `components/ui/card/card.component.ts` defines reusable `<app-card>` (optional `title`, projected content). `core/services/auth.ts` is present but not wired into routes or the shell.
-- **Testing:** `ng test` uses Vitest (see `package.json`).
+* Loads dashboard metrics (users, revenue, conversion rate) from a simulated API
+* Displays a real-time activity feed
+* Combines multiple data sources into a single reactive view model
+* Visualizes key metrics in a bar chart using Chart.js
+* Uses a reusable card-based UI layout for clean composition
+* Handles loading states to mimic real network behavior
+
+---
+
+## ⚙️ Angular Concepts Demonstrated
+
+### 🧩 Standalone Architecture
+
+* Fully built using Angular’s standalone components (no NgModules)
+* Uses `bootstrapApplication` and modern app config setup
+
+### 🔀 Routing & Layout Composition
+
+* Nested routes with a shared `ShellComponent` layout
+* `RouterOutlet` used for dynamic page rendering
+
+### ♻️ Component Design
+
+* Smart vs presentational component separation
+* Reusable `CardComponent` with `@Input()` + `ng-content`
+* Clean UI composition and scalability patterns
+
+### 🔌 Dependency Injection
+
+* Uses Angular’s `inject()` function for service access
+* Centralized API layer (`ApiService`)
+
+### 🌊 Reactive Data Flow (RxJS)
+
+* Observables used for all async data
+* `combineLatest` to merge multiple API streams
+* `shareReplay` for caching and performance
+* Async pipe for automatic subscription management
+
+### 🧠 ViewModel Pattern
+
+* Uses a single `vm$` observable to drive the entire template
+* Keeps templates clean and declarative
+
+### ⏳ State Handling
+
+* Loading states with `*ngIf` and `ng-template`
+* Simulated network delays for realism
+
+### 📊 External Library Integration
+
+* Chart.js integrated directly (no wrapper libraries)
+* Uses `ViewChild` and lifecycle hooks (`AfterViewInit`)
+* Demonstrates DOM interaction in Angular
+
+---
+
+## 🎯 Why This Project
+
+This project is designed to reflect real-world Angular patterns used in production applications, including scalable architecture, reactive programming, and clean UI composition.
 
 ## Tech stack
 

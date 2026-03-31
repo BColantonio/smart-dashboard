@@ -8,7 +8,7 @@ Angular 21 app with a shell layout (sidebar + header), a dashboard home route, a
 - **Dashboard:** Stat cards (users, revenue, conversion) and a “Recent Activity” list. Data comes from `ApiService` (`getDashboardStats`, `getRecentActivity`) with artificial delays.
 - **View model:** `vm$` uses `combineLatest` over those streams and `shareReplay(1)` in `dashboard.component.ts`.
 - **Styling:** Global `src/styles.css` and component styles (inline in the dashboard/shell components). No SCSS files.
-- **Other:** `components/ui/card` is a standalone `app-card` scaffold (not used by the dashboard yet). `core/services/auth.ts` is present but not wired into routes or the shell.
+- **Other:** `components/ui/card/card.component.ts` defines reusable `<app-card>` (optional `title`, projected content). `core/services/auth.ts` is present but not wired into routes or the shell.
 - **Testing:** `ng test` uses Vitest (see `package.json`).
 
 ## Tech stack

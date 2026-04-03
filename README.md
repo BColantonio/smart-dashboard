@@ -89,6 +89,8 @@ npm install
 ng serve
 ```
 
+pr for green square
+
 Open [http://localhost:4200](http://localhost:4200).
 <img width="1313" height="688" alt="image" src="https://github.com/user-attachments/assets/68b1c776-f568-4d50-9daf-2b0c26cbfd9e" />
 
